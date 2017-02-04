@@ -6,7 +6,7 @@
 """
 
 import click
-from . import api
+import api
 
 
 @click.group()
