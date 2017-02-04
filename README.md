@@ -1,5 +1,6 @@
 # tweetsave-python
 
+[![PyPI version](https://badge.fury.io/py/tweetsave.svg)](https://badge.fury.io/py/tweetsave)
 [![Build Status](https://travis-ci.org/kakakaya/tweetsave-python.svg?branch=master)](https://travis-ci.org/kakakaya/tweetsave-python)
 
 A library for https://tweetsave.com
