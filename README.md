@@ -13,4 +13,6 @@ And, install this.
 `$python3 setup.py install`
 
 # Usage
-`tweetsave save https://twitter.com/kakakaya/`
+`tweetsave save https://twitter.com/kakakaya/status/827889729659998208`
+or,
+`tweetsave save 827889729659998208`
