@@ -6,7 +6,7 @@
 """
 
 import click
-import api
+from tweetsave import api
 
 
 @click.group()

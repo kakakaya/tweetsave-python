@@ -6,9 +6,12 @@ from setuptools import setup, find_packages
 
 setup(
     name="tweetsave",
-    version="1.0.0",
-    description='A library for https://tweetsave.com',
+    version="1.0.1",
+    description='A Python3 library for https://tweetsave.com',
     author='kakakaya',
+    author_email="kakakaya@gmail.com",
+    url="https://github.com/kakakaya/tweetsave-python",
+    license="MIT",
     packages=find_packages(),
     test_suite="nose.collector",
     entry_points={
@@ -18,4 +21,10 @@ setup(
         'requests',
         'click'
     ],
+    classifiers=[
+        "Programming Language :: Python :: 3.4",
+        "Programming Language :: Python :: 3.5",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3 :: Only",
+    ]
 )
