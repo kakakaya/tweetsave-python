@@ -11,6 +11,9 @@ A library for https://tweetsave.com
 - click
 
 # Install
+## Recommended Install
+`$ pip install tweetsave`
+
 ## Manual Install
 First, install some libraries from pip(or somewhere you want).
 
