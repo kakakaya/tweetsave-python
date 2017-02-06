@@ -1,14 +1,17 @@
 language: python
 sudo: false
 python:
-- 3.4
-- 3.5
-- 3.6
+  - 3.4
+  - 3.5
+  - 3.6
 install:
-- pip install .
-- pip install -r requirements.txt
+  - pip install .
 script:
-- py.test
+  - py.test
+after_success:
+  - pip install codeclimate-test-reporter
+  - py.test --cov=tweetsave tests
+  - CODECLIMATE_REPO_TOKEN="29bfabe1dcdaa62f0241face15255695ff00986b79c1c32f78bc9e276fe99da7" codeclimate-test-reporter
 notifications:
   email: false
   slack:
