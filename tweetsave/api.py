@@ -20,11 +20,15 @@ def save(target: str) -> dict:
     Yields:
     response from tweetsave.com
     """
-    return requests.get(TWEETSAVE_URL, params={
+    response = requests.get(TWEETSAVE_URL, params={
         "mode": "save",
         "tweet": target
-    }).json()
-
+    })
+    if response.ok:
+        result = response.json()
+    else:
+        result = {"errors": [response.reason]}
+    return result
 
 if __name__ == "__main__":
     print("Don't call api directory; use cli.py instead (or tweetsave command).")
