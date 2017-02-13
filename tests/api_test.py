@@ -16,3 +16,10 @@ class TestSave(TestCase):
         result = api.save(827889729659998209)
         ok_(result)
         eq_(result["errors"], ["Twitter API error (No status found with that ID.)"])
+
+
+class TestStream(TestCase):
+    def test_list(self):
+        result = api.stream('XjEtT')
+        ok_(result)
+        eq_(len(result), 3)
