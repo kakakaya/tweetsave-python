@@ -15,10 +15,24 @@ def cli():
 
 
 @cli.command()
-def list():
+@click.argument("target_id", type=str)
+def list(target_id: str):
     """Show current list on TweetSave.
+
+    Args:
+    target_id -- TweetSave ID for Save list.
+                 For example, if you want to get data from https://tweetsave.com/saves/XjEtT, use XjEtT.
     """
-    raise NotImplementedError("No public API published.")
+    result = api.stream(target_id)
+    if len(result) == 0:
+        # 何も得られない
+        print("Nothing saved yet.")
+    elif type(result[0]) is str:
+        # エラーを表示する
+        print("\n".join(result))
+    else:
+        for item in result:
+            print("@{item[user][screen_name]}: {item[text]}".format(item=item))
 
 
 @cli.command()
@@ -29,7 +43,7 @@ def save(target: str):
     Args:
     target -- Status URL or Status ID
     """
-    result = api.ave(target)
+    result = api.save(target)
     status = result.get("status")
     if status and status == "OK":
         print(result.get("redirect"))

@@ -31,7 +31,7 @@ def save(target: str) -> dict:
     return result
 
 
-def stream(target_id: str) -> dict:
+def stream(target_id: str) -> list:
     items = []
     page = 1
     while True:
@@ -43,15 +43,17 @@ def stream(target_id: str) -> dict:
         })
         if resp.ok:
             data = resp.json()
-            if "errors" in data.keys():
+            if type(data) is dict:
                 if "No more results" in data["errors"]:
                     break       # このときだけ抜ける
                 else:
-                    pass        # Unknown Error
+                    return data["errors"]
             else:
                 items += data
+                page += 1       # 次のページを参照する
         else:
             continue
+    return items
 
 
 if __name__ == "__main__":
