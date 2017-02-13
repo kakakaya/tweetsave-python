@@ -20,10 +20,15 @@ def save(target: str) -> dict:
     Yields:
     response from tweetsave.com
     """
-    return requests.get(TWEETSAVE_URL, params={
+    response = requests.get(TWEETSAVE_URL, params={
         "mode": "save",
         "tweet": target
-    }).json()
+    })
+    if response.ok:
+        result = response.json()
+    else:
+        result = {"errors": [response.reason]}
+    return result
 
 
 def stream(target_id: str) -> dict:

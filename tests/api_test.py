@@ -11,3 +11,8 @@ class TestSave(TestCase):
         result = api.save(827889729659998208)
         ok_(result)
         eq_(result["status"], "OK")
+
+    def test_no_id(self):
+        result = api.save(827889729659998209)
+        ok_(result)
+        eq_(result["errors"], ["Twitter API error (No status found with that ID.)"])
