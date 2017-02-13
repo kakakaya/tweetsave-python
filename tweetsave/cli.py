@@ -7,6 +7,7 @@
 
 import click
 from tweetsave import api
+from sys import exit
 
 
 @click.group()
@@ -48,7 +49,7 @@ def save(target: str):
     if status and status == "OK":
         print(result.get("redirect"))
     else:
-        "\n".format(result.get("errors"))
+        exit("\n".join(result.get("errors")))
 
 
 def main():

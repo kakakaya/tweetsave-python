@@ -6,7 +6,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="tweetsave",
-    version="1.0.1",
+    version="1.1.0",
     description='A Python3 library for https://tweetsave.com',
     author='kakakaya',
     author_email="kakakaya@gmail.com",
