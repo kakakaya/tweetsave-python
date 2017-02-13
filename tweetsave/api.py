@@ -26,5 +26,28 @@ def save(target: str) -> dict:
     }).json()
 
 
+def stream(target_id: str) -> dict:
+    items = []
+    page = 1
+    while True:
+        resp = requests.get(TWEETSAVE_URL, params={
+            "mode": "stream",
+            "stream": "saves",
+            "page": page,
+            "target_id": target_id
+        })
+        if resp.ok:
+            data = resp.json()
+            if "errors" in data.keys():
+                if "No more results" in data["errors"]:
+                    break       # このときだけ抜ける
+                else:
+                    pass        # Unknown Error
+            else:
+                items += data
+        else:
+            continue
+
+
 if __name__ == "__main__":
     print("Don't call api directory; use cli.py instead (or tweetsave command).")
