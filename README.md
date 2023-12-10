@@ -1,3 +1,5 @@
+# Discontinued
+as tweetsave.com (warning -- it directs to spam now) closed, this project also closed.
 # tweetsave-python
 
 [![PyPI License](https://img.shields.io/pypi/l/tweetsave.svg)]()
